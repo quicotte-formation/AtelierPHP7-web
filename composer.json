@@ -1,0 +1,13 @@
+{
+    "name": "vendor/atelier-p-h-p7-web",
+    "description": "Description of project AtelierPHP7-web.",
+    "authors": [
+        {
+            "name": "ib",
+            "email": "your@email.here"
+        }
+    ],
+    "require": {
+        "twig/twig": "v2.4.4"
+    }
+}

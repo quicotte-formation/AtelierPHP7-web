@@ -1,0 +1,5 @@
+<h1>Liste des films</h1>
+{% for f in films %}
+    {{ f.titre | capitalize | slice(0, 3) }}
+    <br>
+{% endfor %}

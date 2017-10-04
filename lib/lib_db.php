@@ -62,9 +62,9 @@ function creerTables(){
     $pdo->exec($req2);
 }
 
-//supprimerTables();
-//creerTables();
-//ajouterFilm("dracula");
-//ajouterFilm("kung fu panda");
-//$films = listerFilms();
-//var_dump($films);
+supprimerTables();
+creerTables();
+ajouterFilm("dracula");
+ajouterFilm("kung fu panda");
+$films = listerFilms();
+var_dump($films);
