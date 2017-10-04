@@ -11,8 +11,8 @@
     foreach ($films as $film) {
 ?>
     <tr>
-        <td><?php echo $film; ?></td>
-        <td><a href="front_controller.php?action=supprime_film&titre=<?php echo $film; ?>"><button>Supprimer</button></a></td>
+        <td><?php echo $film["titre"]; ?></td>
+        <td><a href="front_controller.php?action=supprime_film&id=<?php echo $film["id"]; ?>"><button>Supprimer</button></a></td>
     </tr>
 <?php
     }

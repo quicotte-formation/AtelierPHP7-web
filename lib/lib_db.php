@@ -3,6 +3,17 @@
 define('CHAINE_DE_CONNEXION', 'mysql:host=localhost;dbname=test');
 define('DB_USER', 'root');
 
+function supprimerFilm($id){
+    
+    $pdo = new PDO(CHAINE_DE_CONNEXION, DB_USER);
+    $pdo->beginTransaction();
+    
+    $stm = $pdo->prepare("DELETE FROM film WHERE id=:idFilm");
+    $stm->bindValue("idFilm", $id);
+    $stm->execute();
+    
+    $pdo->commit();
+}
 
 function ajouterFilm($titre){
     
@@ -51,9 +62,9 @@ function creerTables(){
     $pdo->exec($req2);
 }
 
-supprimerTables();
-creerTables();
-ajouterFilm("dracula");
-ajouterFilm("kung fu panda");
-$films = listerFilms();
-var_dump($films);
+//supprimerTables();
+//creerTables();
+//ajouterFilm("dracula");
+//ajouterFilm("kung fu panda");
+//$films = listerFilms();
+//var_dump($films);
