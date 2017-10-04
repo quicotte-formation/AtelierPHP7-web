@@ -1,5 +1,9 @@
 <?php
 
+    if( !isset($_COOKIE["theme"]) )
+        setcookie ("theme", "defaut");
+    echo $_COOKIE["theme"];
+
     session_start();
     if( ! isset($_SESSION["films"]) ){
         $_SESSION["films"] = ["dracula", "nosferatu"];
