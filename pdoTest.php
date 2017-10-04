@@ -1,5 +1,16 @@
 <?php
 
+include_once './Service/FilmService.php';
+
+$s = new FilmService();
+//$s->creerTable();
+$res = $s->lister();
+foreach ($res as $film){
+
+    printf("%s\n", $film["titre"]);
+}
+exit;
+
 $strConnection = 'mysql:host=localhost;dbname=test';
 $pdo = new PDO($strConnection, 'root');
 $pdo->beginTransaction();
