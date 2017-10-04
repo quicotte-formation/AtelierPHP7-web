@@ -3,6 +3,32 @@
 define('CHAINE_DE_CONNEXION', 'mysql:host=localhost;dbname=test');
 define('DB_USER', 'root');
 
+
+function ajouterFilm($titre){
+    
+    $pdo = new PDO(CHAINE_DE_CONNEXION, DB_USER);
+    $pdo->beginTransaction();
+    
+    $stm = $pdo->prepare("INSERT INTO film(titre) VALUES(:monTitre)");
+    $stm->bindValue("monTitre", $titre);
+    $stm->execute();
+    
+    $pdo->commit();
+}
+
+/**
+ * Retourne tous les films classée alphabétiquement.
+ * @return array
+ */
+function listerFilms(): array{
+    
+    $pdo = new PDO(CHAINE_DE_CONNEXION, DB_USER);
+    
+    $statement = $pdo->query("SELECT * FROM film ORDER BY titre");
+    
+    return $statement->fetchAll();
+}
+
 function supprimerTables(){
     
     $pdo = new PDO(CHAINE_DE_CONNEXION, DB_USER);
@@ -25,5 +51,9 @@ function creerTables(){
     $pdo->exec($req2);
 }
 
+supprimerTables();
 creerTables();
-
+ajouterFilm("dracula");
+ajouterFilm("kung fu panda");
+$films = listerFilms();
+var_dump($films);
