@@ -1,0 +1,18 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        {% block menu %}
+            {% include '_MENU.html.twig' %}
+        {% endblock %}
+
+        {% block contenu %}
+            *** CONTENU PAR DEFAULT ***
+        {% endblock %}
+        
+        {% block pied %}
+            {% include '_FOOTER.html.twig' %}
+        {% endblock %}
+    </body>
+</html>
